@@ -1,0 +1,205 @@
+/* ==UserStyle==
+@name           Stellaris Wiki Green
+@namespace      userstyles.world
+@version        1.0.0
+==/UserStyle== */
+@-moz-document url-prefix("https://stellaris.paradoxwikis.com") {
+	body {
+		background-color: black;
+		color: #1dc57c;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	h3 span {
+		color: white;
+		border-bottom: 1px solid #588370;
+	}
+
+	a,
+	.eu4box-inline a,
+	.stellaris-outliner a,
+	.toctogglelabel {
+		color: #DC9F54 !important;
+	}
+
+	a:hover {
+		text-decoration: none;
+		text-shadow: 0px 0px 10px #DC9F54;
+	}
+
+	a:visited {
+		color: #AA7B42 !important;
+	}
+
+	ul {
+		list-style-image: none;
+	}
+
+	.eu4box-inline hr {
+		border: none !important;
+		background-color: #588370 !important;
+	}
+
+	#firstHeading {
+		font-family: sans-serif;
+	}
+
+	.mw-page-container,
+	#mw-page-base,
+	#mw-panel {
+		background-color: black;
+	}
+
+	#mw-head>* {
+		filter: invert(100);
+	}
+
+	#mw-head a {
+		filter: invert(100);
+	}
+
+	div#mw-panel div.portal h3 {
+		color: #B2B2B2;
+	}
+
+	div#mw-panel div.portal {
+		background-image: none;
+		border-bottom: 1px solid #588370;
+	}
+
+	.mw-headline {
+		color: #1dc57c;
+		font-family: sans-serif;
+	}
+
+	.mw-body {
+		border: 1px solid #588370;
+		background-color: #111815;
+		color: #7DC6AB;
+	}
+
+	audio {
+		filter: invert(1);
+	}
+
+	.toc {
+		background: linear-gradient(to top, #1c2923, #111815, #1c2923);
+	}
+
+	#toc,
+	.toc,
+	.me-warning,
+	.toccolours,
+	.catlinks {
+		border: 1px solid #588370;
+		background-color: transparent;
+	}
+
+	.tocnumber {
+		color: inherit;
+	}
+
+	div.thumbinner {
+		border: 1px solid #588370;
+		background: linear-gradient(to top, #1c2923, #111815 33px);
+	}
+
+	html .thumbimage {
+		border: 1px solid #588370;
+	}
+
+	li.gallerybox div.thumb {
+		background-color: #000;
+		border: 1px solid #588370;
+	}
+
+	li.gallerybox div.thumb:hover {
+		background-color: transparent;
+	}
+
+	span.inline-sup {
+		color: white !important;
+		background-color: black !important;
+		border: 1px solid #588370 !important;
+		padding: 1px 8px;
+	}
+
+	/* Tables */
+	table.wikitable,
+	.mildtable,
+	.footerTable {
+		color: #1dc57c;
+		background: linear-gradient(to top, #1c2923, #111815, #1c2923);
+		border: 1px solid #588370;
+		border-collapse: collapse;
+	}
+
+	/* Table Headers */
+	table.wikitable tr>th,
+	.mildtable th,
+	.footerTable>div:first-child {
+		background: linear-gradient(to top, #111815, #1c2923);
+		border: 1px solid #588370;
+		border-width: 1px 0px;
+	}
+
+	/* Table Cells */
+	table.wikitable>tr>th,
+	table.wikitable>tr>td,
+	table.wikitable>*>tr>th,
+	table.wikitable>*>tr>td,
+	.mildtable td {
+		border: 1px solid #588370;
+		border-width: 1px 0px;
+	}
+
+	.footerTable table {
+		border-collapse: collapse;
+	}
+
+	.footerTable>div:first-child {
+		border-top: 0px;
+	}
+
+	.mwe-math-fallback-image-inline {
+		filter: invert(100);
+	}
+
+	#catlinks.catlinks {
+		background: transparent;
+	}
+
+	.eu4box-inline {
+		color: #1dc57c !important;
+		background: linear-gradient(to top, #1c2923, #111815, #1c2923);
+		border-color: #588370;
+		background-color: #111815 !important;
+	}
+
+	.eu4box-inline>div {
+		color: #B2B2B2 !important;
+	}
+
+	section.pdx-cookie-container {
+		display: none;
+	}
+
+	img.mw-logo-wordmark {
+		filter: invert(1) hue-rotate(170deg);
+	}
+
+	/* Override inline styles for the references table */
+	div.mw-parser-output>div {
+		border-color: #588370 !important;
+	}
+
+	div.mw-parser-output>div>div,
+	div.mw-parser-output>div td {
+		background-color: transparent !important;
+	}
+}
