@@ -193,7 +193,10 @@
 		filter: invert(1) hue-rotate(170deg);
 	}
 
-	/* Override inline styles for the references table */
+	/* Override inline styles for the references table                                                          */
+	/* This only fixes the border and the background                                                            */
+	/* To make it match the other tables, use the helper script:                                                */
+	/* https://raw.githubusercontent.com/de5933/UserStyles/master/stellaris-wiki-green/stellaris-wiki-helper.js */
 	div.mw-parser-output>div {
 		border-color: #588370 !important;
 	}
