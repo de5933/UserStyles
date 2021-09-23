@@ -9,6 +9,7 @@
 // ==/UserScript==
 
 /*
+For use with https://raw.githubusercontent.com/de5933/UserStyles/master/stellaris-wiki-green/stellaris-wiki-green.css
 The reference table at the bottom of each article has all of its styles defined in style attributes. None of the components have classes. 
 It's almost impossible to apply my own styles to the table because (A) It has no class name, and (B) Inline styles override class styles. 
 Solution: This script identifies the table, adds a className to it, and strips out the problematic inline styles. 
