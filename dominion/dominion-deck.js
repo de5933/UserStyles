@@ -1,15 +1,31 @@
 #!/usr/bin/env node
 // Reconstructs each player's deck (every card they own) from a Dominion game log.
-// Works with logs copied from dominion.games (text split across many lines) or
-// with one-entry-per-line logs.
+// Works with logs copied from dominion.games (text split across many lines),
+// the log pane's raw HTML, or one-entry-per-line logs.
 //
 // Usage: node dominion-deck.js log.txt     (or pipe the log on stdin)
 // Browser: paste this file into the console, then call parseDominionLog(text).
 
 const VERBS = /^ ?(starts with|buys and gains|gains|trashes|returns|passes|takes|plays|draws|shuffles|reveals|discards|topdecks|sets aside|puts|receives|exiles|buys)\b/;
 
+// Raw HTML from the log pane: one entry per <div class="log-line">, tags stripped.
+function htmlToEntries(html) {
+  return html
+    .split(/<div[^>]*class="log-line(?:\s[^"]*)?"[^>]*>/)
+    .slice(1)
+    .map(chunk => chunk
+      .replace(/<[^>]*>/g, '')
+      .replace(/&nbsp;/g, ' ')
+      .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, "'")
+      .replace(/&amp;/g, '&')
+      .replace(/\s+/g, ' ')
+      .trim())
+    .filter(Boolean);
+}
+
 // Turn the raw text into one string per log entry.
 function toEntries(text) {
+  if (/class="log-line[\s"]/.test(text)) return htmlToEntries(text);
   const lines = text.split(/\r?\n/);
   const split = lines.some(l => /^ /.test(l) && VERBS.test(l));
   if (!split) return lines.map(l => l.trim()).filter(Boolean);
