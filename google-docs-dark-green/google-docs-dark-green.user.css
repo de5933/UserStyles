@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Google Docs Dark Green
 @namespace      userstyles.world
-@version        1.1.0
+@version        1.1.1
 @description    Dark theme for Google Docs with green text.
 ==/UserStyle== */
 @-moz-document url-prefix("https://docs.google.com/document/") {
@@ -24,12 +24,17 @@
 		background-color: var(--gd-bg) !important;
 	}
 
+	/* Right-hand app strip (Keep, Calendar, ...) */
+	.docs-companion-app-switcher-container,
+	.companion-app-switcher-container,
+	[class*="companion-app-switcher"] {
+		background-color: var(--gd-bg) !important;
+		border-color: var(--gd-border) !important;
+	}
+
 	/* ---------- App chrome: filter whole light regions ---------- */
 	#docs-chrome,
 	.left-sidebar-container,
-	.navigation-widget,
-	.docs-companion-app-switcher-container,
-	.companion-app-switcher-container,
 	.goog-menu,
 	.docs-menu,
 	.modal-dialog,
