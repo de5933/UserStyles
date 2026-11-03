@@ -1,0 +1,160 @@
+/* ==UserStyle==
+@name           Google Docs Dark Green
+@namespace      userstyles.world
+@version        1.0.0
+@description    Dark theme for Google Docs with green text.
+==/UserStyle== */
+@-moz-document url-prefix("https://docs.google.com/document/") {
+	:root {
+		--gd-bg: #000000;
+		--gd-surface: #0d0f0e;
+		--gd-raised: #161a18;
+		--gd-border: #2b3a33;
+		--gd-text: #1dc57c;
+		--gd-text-dim: #158f5a;
+		--gd-accent: #dc9f54;
+	}
+
+	/* ---------- App chrome ---------- */
+	body,
+	#docs-chrome,
+	#docs-header,
+	#docs-titlebar-container,
+	#docs-menubar,
+	.docs-titlebar-badges,
+	.kix-appview-editor-container,
+	.kix-appview-editor,
+	.left-sidebar-container,
+	.navigation-widget,
+	.docs-companion-app-switcher-container {
+		background-color: var(--gd-bg) !important;
+		color: var(--gd-text) !important;
+	}
+
+	#docs-toolbar-wrapper,
+	.docs-material #docs-toolbar-wrapper {
+		background-color: var(--gd-raised) !important;
+		border-color: var(--gd-border) !important;
+	}
+
+	.docs-title-input,
+	.docs-title-input-label-inner,
+	.menu-button,
+	.goog-control,
+	.goog-toolbar-button,
+	.goog-toolbar-menu-button,
+	.goog-toolbar-combo-button,
+	.navigation-widget *,
+	.docs-ruler {
+		color: var(--gd-text) !important;
+	}
+
+	/* Toolbar icons are dark sprites/SVGs: invert and tint them green */
+	.docs-icon-img,
+	.docs-icon-img-container,
+	.goog-toolbar-button .docs-icon,
+	.goog-toolbar-menu-button-dropdown,
+	.docs-material .goog-toolbar-menu-button-dropdown {
+		filter: invert(1) sepia(1) saturate(4) hue-rotate(95deg) brightness(0.9);
+	}
+
+	.goog-toolbar-button-hover,
+	.goog-toolbar-menu-button-hover,
+	.menu-button:hover,
+	.goog-control-hover {
+		background-color: #1f2a25 !important;
+	}
+
+	.goog-toolbar-button-checked,
+	.goog-toolbar-menu-button-open {
+		background-color: #24402f !important;
+	}
+
+	.docs-ruler,
+	.docs-ruler * {
+		background-color: var(--gd-surface) !important;
+		border-color: var(--gd-border) !important;
+	}
+
+	/* ---------- Menus, dialogs, comments ---------- */
+	.goog-menu,
+	.goog-menuitem,
+	.docs-menu,
+	.modal-dialog,
+	.docs-dialog,
+	.jfk-bubble,
+	.docos-anchoreddocoview,
+	.docos-docoview-tesla-conflict,
+	.docos-streampane-container {
+		background-color: var(--gd-raised) !important;
+		color: var(--gd-text) !important;
+		border-color: var(--gd-border) !important;
+	}
+
+	.goog-menuitem-content,
+	.goog-menuitem-label,
+	.goog-menuitem-accel,
+	.modal-dialog-title,
+	.modal-dialog-content,
+	.docos-anchoreddocoview *,
+	.docs-dialog * {
+		color: var(--gd-text) !important;
+	}
+
+	.goog-menuitem-accel {
+		color: var(--gd-text-dim) !important;
+	}
+
+	.goog-menuitem-highlight,
+	.goog-menuitem-hover {
+		background-color: #24402f !important;
+	}
+
+	.goog-menuseparator {
+		border-color: var(--gd-border) !important;
+	}
+
+	a,
+	.docs-link-bubble-link {
+		color: var(--gd-accent) !important;
+	}
+
+	/* ---------- Document pages ---------- */
+	/*
+	 * Docs draws text onto <canvas>, so CSS color can't reach it.
+	 * Instead: invert the canvas (white page -> black, black text -> white),
+	 * hue-rotate to keep colored text roughly its original hue, then
+	 * multiply a green layer over the page so white text becomes green.
+	 */
+	.kix-page-paginated,
+	.kix-page {
+		background-color: var(--gd-bg) !important;
+		box-shadow: 0 0 0 1px var(--gd-border) !important;
+		isolation: isolate;
+	}
+
+	.kix-canvas-tile-content,
+	.kix-page-paginated canvas {
+		filter: invert(1) hue-rotate(180deg);
+	}
+
+	.kix-page-paginated::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background-color: var(--gd-text);
+		mix-blend-mode: multiply;
+		pointer-events: none;
+		z-index: 10;
+	}
+
+	/* Text cursor */
+	.kix-cursor-caret {
+		border-color: var(--gd-text) !important;
+	}
+
+	/* Scrollbars */
+	* {
+		scrollbar-color: var(--gd-border) var(--gd-bg);
+	}
+}
