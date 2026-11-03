@@ -1,0 +1,70 @@
+/* ==UserStyle==
+@name           Google Docs Dark Green
+@namespace      userstyles.world
+@version        1.1.0
+@description    Dark theme for Google Docs with green text.
+==/UserStyle== */
+@-moz-document url-prefix("https://docs.google.com/document/") {
+	:root {
+		--gd-bg: #000000;
+		--gd-border: #2b3a33;
+		--gd-text: #1dc57c;
+		/*
+		 * Turns a light UI dark: white -> black, black -> #1dc57c green.
+		 * Google Docs draws document text on <canvas>, so CSS colors can't
+		 * reach it; a filter is the only way to recolor it.
+		 */
+		--gd-filter: invert(1) brightness(0.42) sepia(1) saturate(3.25) hue-rotate(102deg) brightness(1.2);
+	}
+
+	html,
+	body,
+	.kix-appview-editor-container,
+	.kix-appview-editor {
+		background-color: var(--gd-bg) !important;
+	}
+
+	/* ---------- App chrome: filter whole light regions ---------- */
+	#docs-chrome,
+	.left-sidebar-container,
+	.navigation-widget,
+	.docs-companion-app-switcher-container,
+	.companion-app-switcher-container,
+	.goog-menu,
+	.docs-menu,
+	.modal-dialog,
+	.docs-dialog,
+	.jfk-bubble,
+	.docs-bubble,
+	.docos-anchoreddocoview,
+	.docos-streampane-container,
+	.docs-explore-widget {
+		filter: var(--gd-filter);
+	}
+
+	/* ---------- Document pages ---------- */
+	.kix-page-paginated,
+	.kix-page {
+		background-color: var(--gd-bg) !important;
+	}
+
+	.kix-canvas-tile-content,
+	.kix-appview-editor canvas {
+		filter: var(--gd-filter);
+	}
+
+	/* Page border (paged mode) */
+	.kix-page-paginated {
+		box-shadow: 0 0 0 1px var(--gd-border) !important;
+	}
+
+	/* Text cursor */
+	.kix-cursor-caret {
+		border-color: var(--gd-text) !important;
+	}
+
+	/* Scrollbars */
+	* {
+		scrollbar-color: var(--gd-border) var(--gd-bg);
+	}
+}
